@@ -1,0 +1,26 @@
+[
+  {
+    "tipo": "imagem",
+    "arquivo": "midias/story_escola.jpg",
+    "descricao": "Divulgação EBD Julho",
+    "categoria": "stories"
+  },
+  {
+    "tipo": "video",
+    "arquivo": "midias/video_conferencia.mp4",
+    "descricao": "Chamada Conferência de Jovens",
+    "categoria": "stories"
+  },
+  {
+    "tipo": "imagem",
+    "arquivo": "midias/projecao_culto_oracao.jpg",
+    "descricao": "Arte para Culto de Oração",
+    "categoria": "projecao"
+  },
+  {
+    "tipo": "video",
+    "arquivo": "midias/projecao_intro_culto.mp4",
+    "descricao": "Introdução visual de culto",
+    "categoria": "projecao"
+  }
+]
