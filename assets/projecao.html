@@ -68,3 +68,43 @@
   </script>
 </body>
 </html>
+
+<script>
+  const CATEGORIA_ATUAL = "projecao"; // OU "stories"
+
+  fetch("DATA/midias.json")
+    .then(res => res.json())
+    .then(midias => {
+      const container = document.querySelector(".avisos-lista");
+      midias
+        .filter(item => item.categoria === CATEGORIA_ATUAL)
+        .forEach(item => {
+          const div = document.createElement("div");
+          div.className = "aviso-item";
+
+          if (item.tipo === "imagem") {
+            div.innerHTML = `
+              <img src="${item.arquivo}" alt="${item.descricao}" class="midia-thumbnail" onclick="abrirModal('${item.arquivo}')">
+              <div class="aviso-botoes">
+                <a href="${item.arquivo}" class="btn-aviso" download>
+                  <i class="fa-solid fa-download"></i> Baixar Imagem
+                </a>
+              </div>`;
+          } else if (item.tipo === "video") {
+            div.innerHTML = `
+              <video width="100%" controls>
+                <source src="${item.arquivo}" type="video/mp4">
+                Seu navegador não suporta reprodução de vídeo.
+              </video>
+              <div class="aviso-botoes">
+                <a href="${item.arquivo}" class="btn-aviso" download>
+                  <i class="fa-solid fa-download"></i> Baixar Vídeo
+                </a>
+              </div>`;
+          }
+
+          container.appendChild(div);
+        });
+    });
+</script>
+
