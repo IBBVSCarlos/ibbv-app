@@ -1,3 +1,4 @@
+
 /* --------------------------- VARIÁVEIS DE CORES --------------------------- */
 :root {
   --color-bg-gradient-start: #e6f2f0;
@@ -321,6 +322,52 @@ h2 {
 .btn-aviso:hover {
   background: rgba(0, 77, 0, 0.9);
 }
+
+.aviso-contador {
+  font-weight: bold;
+  margin-top: 0.5em;
+  font-size: 0.525em;
+  padding: 4px 8px;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+/* Urgência por proximidade */
+.aviso-contador[data-status="urgente"] {
+  background-color: #ffdddd;
+  color: #b10000;
+}
+
+.aviso-contador[data-status="moderado"] {
+  background-color: #fff4cc;
+  color: #b36b00;
+}
+
+.aviso-contador[data-status="leve"] {
+  background-color: #d4edda;
+  color: #155724;
+}
+@keyframes pulsar {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  }
+}
+
+.aviso-contador[data-status="urgente"] {
+  background-color: #ffdddd;
+  color: #b10000;
+  animation: pulsar 1.8s infinite;
+}
+
+
 /* --------------------------------------------------------------------- ESCALA DE MINISTÉRIOS ---------------------------------------------------------------- */
 
 .escala-grid {
@@ -749,5 +796,24 @@ footer a:focus {
   visibility: visible;
   transform: translateY(-8px);
   transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+
+/* Ministerio de Midia */
+.midia-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.midia-item {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+.midia-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
