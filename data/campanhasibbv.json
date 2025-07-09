@@ -3,12 +3,14 @@
     {
       "texto": "Construção dos Banheiros",
       "imagem": "img/camp/cBANHEIROS.png",
-      "linkAgenda": ""
+      "linkAgenda": "",
+      "descricao": "Estamos construindo novos banheiros para melhor atender nossos membros e visitantes. Contribua com amor!"
     },
     {
       "texto": "Campanha Kids",
       "imagem": "img/camp/cKIDS.png",
-      "linkAgenda": ""
+      "linkAgenda": "",
+      "descricao": "Apoie o ministério infantil com recursos para atividades, brinquedos e formação cristã."
     }
   ]
 }

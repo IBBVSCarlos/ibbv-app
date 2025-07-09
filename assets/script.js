@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", carregarAniversariantesSemana);
 
 
 // =====================================
-// 📢 Avisos IBBV (com expiração dinâmica via executaEm)
+// 📢 Avisos IBBV (com expiração dinâmica via executaEm) AJUSTADO
 // =====================================
 function carregarAvisos() {
   fetch('data/avisosibbv.json')
@@ -276,15 +276,17 @@ function carregarCampanhas() {
     .then(({ campanhas }) => {
       const listaCampanhas = document.getElementById('lista-campanhas');
 
+      window.listaCampanhasIBBV = campanhas; // Guarda globalmente
+
       listaCampanhas.innerHTML = campanhas.length
-        ? campanhas.map(({ texto, imagem, linkAgenda }) => {
+        ? campanhas.map(({ texto, imagem, linkAgenda }, index) => {
             const imagemPreview = imagem;
             const imagemReal = imagem ? imagem.replace(/^.*\/c/, 'img/') : '';
 
             return `
               <li class="aviso-item">
                 <p class="aviso-texto">${texto.replace(' - ', '<br>').replace(' - ', ' - ')}</p>
-                ${imagem ? `<img src="${imagemPreview}" alt="${texto}" class="aviso-img" onclick="ampliarImagem('${imagemReal}')">` : ''}
+                ${imagem ? `<img src="${imagemPreview}" alt="${texto}" class="aviso-img" onclick="abrirModalCampanha(${index})">` : ''}
                 <div class="aviso-botoes">
                   ${imagem ? `
                   <a href="${imagemReal}" download class="btn-aviso" title="Baixar imagem">
@@ -301,6 +303,18 @@ function carregarCampanhas() {
         : '<li>Nenhuma campanha no momento.</li>';
     })
     .catch(err => console.error('Erro ao carregar campanhas:', err));
+}
+
+function abrirModalCampanha(index) {
+  const campanha = window.listaCampanhasIBBV[index];
+  const modal = document.getElementById('modal-campanha');
+
+  modal.querySelector('.modal-imagem').src = campanha.imagem;
+  modal.querySelector('.modal-imagem').alt = campanha.texto;
+  modal.querySelector('.modal-titulo').textContent = campanha.texto;
+  modal.querySelector('.modal-descricao').textContent = campanha.descricao || "Nenhuma descrição disponível.";
+
+  modal.classList.add('aberto');
 }
 
 document.addEventListener("DOMContentLoaded", carregarCampanhas);
