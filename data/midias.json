@@ -18,21 +18,21 @@
     "data": "2025-07-03"
   },
   {
-    "id": "290625",
+    "id": "270725",
     "tipo": "video",
     "uso": "stories",
-    "arquivo": "data/midia/stories/290625.mp4",
+    "arquivo": "data/midia/stories/270725.mp4",
     "extensao": "mp4",
-    "descricao": "Video para divulgação nos stories - Culto de 29-06-2025",
-    "data": "2025-06-20"
+    "descricao": "Video para divulgação nos stories - Culto de 27-07-2025",
+    "data": "2025-07-27"
   },
   {
-    "id": "290625",
+    "id": "270725",
     "tipo": "imagem",
     "uso": "projecao",
-    "arquivo": "data/midia/projecao/290625.png",
+    "arquivo": "data/midia/projecao/270725.png",
     "extensao": "png",
-    "descricao": "Imagem para projeção na igreja - Culto de 29-06-2025",
-    "data": "2025-06-20"
+    "descricao": "Imagem para projeção na igreja - Culto de 27-07-2025",
+    "data": "2025-07-27"
   }
 ]
