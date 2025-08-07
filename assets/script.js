@@ -118,7 +118,7 @@ async function carregarAniversariantesSemana() {
     document.getElementById("lista-aniversariantes").innerHTML = aniversariantesSemana.length
       ? aniversariantesSemana.map(p => {
           const hojeTexto = new Date().toLocaleDateString("pt-BR") === p.data ? " <strong>(hoje!)</strong>" : "";
-          return `<li>${emojis[Math.floor(Math.random() * emojis.length)]} ${p.nome}${hojeTexto}</li>`;
+          return `<li>${emojis[Math.floor(Math.random() * emojis.length)]} ${p.nome} - ${p.data}${hojeTexto}</li>`;
         }).join("")
       : '<li>Nenhum aniversariante nesta semana.</li>';
   } catch (error) {
@@ -318,3 +318,4 @@ function abrirModalCampanha(index) {
 }
 
 document.addEventListener("DOMContentLoaded", carregarCampanhas);
+
