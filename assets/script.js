@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =====================================
-// 🔍 Ampliar imagem (refatorado)
+// 🔍 Ampliar imagem compatível com seu CSS
 // =====================================
 function ampliarImagem(src) {
   if (!src || src.trim() === "") return; // evita abrir modal se não houver imagem
@@ -330,5 +330,6 @@ function abrirModalCampanha(index) {
 }
 
 document.addEventListener("DOMContentLoaded", carregarCampanhas);
+
 
 
