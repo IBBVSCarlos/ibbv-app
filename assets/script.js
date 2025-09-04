@@ -252,18 +252,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =====================================
-// 🔍 Ampliar imagem
+// 🔍 Ampliar imagem (refatorado)
 // =====================================
 function ampliarImagem(src) {
+  if (!src || src.trim() === "") return; // evita abrir modal se não houver imagem
+
+  // Cria o modal
   const modal = document.createElement('div');
   modal.className = 'imagem-modal';
   modal.innerHTML = `
     <div class="imagem-modal-conteudo">
-      <span class="imagem-modal-fechar" onclick="this.parentElement.parentElement.remove()">✖</span>
+      <span class="imagem-modal-fechar" title="Fechar">✖</span>
       <img src="${src}" alt="Aviso ampliado">
     </div>
   `;
+
+  // Adiciona no body
   document.body.appendChild(modal);
+
+  // Fecha ao clicar no X ou fora da imagem
+  const fechar = modal.querySelector('.imagem-modal-fechar');
+  fechar.addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.remove();
+  });
 }
 
 // =====================================
@@ -318,4 +330,5 @@ function abrirModalCampanha(index) {
 }
 
 document.addEventListener("DOMContentLoaded", carregarCampanhas);
+
 
